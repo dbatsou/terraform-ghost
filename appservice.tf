@@ -21,7 +21,8 @@ resource "azurerm_app_service" "dockerapp" {
   resource_group_name = "${azurerm_resource_group.ghost_rg.name}"
   app_service_plan_id = "${azurerm_app_service_plan.appserviceplan.id}"
 
-  
+  app_settings = {
+    WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
 
     /*
     # Settings for private Container Registires  
@@ -29,6 +30,7 @@ resource "azurerm_app_service" "dockerapp" {
     DOCKER_REGISTRY_SERVER_USERNAME = ""
     DOCKER_REGISTRY_SERVER_PASSWORD = ""
     */
+  }
 
   # Configure Docker Image to load on start
   site_config {

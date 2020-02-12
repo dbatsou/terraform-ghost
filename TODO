@@ -1,0 +1,6 @@
+https://sergeydotnet.com/ghost-on-azure-with-docker/
+https://curia.me/how-i-have-moved-my-blog-to-ghost/
+
+
+1) Create storage account > container > file share
+2) mount file share to app service
