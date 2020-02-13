@@ -1,5 +1,5 @@
-resource "azurerm_app_service_plan" "appserviceplan" {
-  name                = "${azurerm_resource_group.ghost_rg.name}-plan"
+resource "azurerm_app_service_plan" "ghostblog" {
+  name                = "${azurerm_resource_group.ghost_rg.name}"
   location            = "${azurerm_resource_group.ghost_rg.location}"
   resource_group_name = "${azurerm_resource_group.ghost_rg.name}"
 
@@ -15,11 +15,11 @@ reserved = true # Mandatory for Linux plans
 }
 
 # Create an Azure Web App for Containers in that App Service Plan
-resource "azurerm_app_service" "dockerapp" {
-  name                = "${azurerm_resource_group.ghost_rg.name}-dockerapp"
+resource "azurerm_app_service" "ghostblog" {
+  name                = "${azurerm_resource_group.ghost_rg.name}"
   location            = "${azurerm_resource_group.ghost_rg.location}"
   resource_group_name = "${azurerm_resource_group.ghost_rg.name}"
-  app_service_plan_id = "${azurerm_app_service_plan.appserviceplan.id}"
+  app_service_plan_id = "${azurerm_app_service_plan.ghostblog.id}"
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
