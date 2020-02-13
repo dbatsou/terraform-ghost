@@ -23,13 +23,13 @@ resource "azurerm_app_service" "ghostblog" {
 
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
+    database__connection__filename =	"/var/lib/ghost/content_blob/ghost.db"
+    GHOST_CONTENT	="/var/lib/ghost/content_files/"
+    NODE_ENV =	"production"
+    paths__contentPath	="/var/lib/ghost/content_files/"
+    privacy__useUpdateCheck	= false
+    url = "${var.resource_group_prefix}${var.environments[terraform.workspace]}.azurewebsites.net"
 
-    /*
-    # Settings for private Container Registires  
-    DOCKER_REGISTRY_SERVER_URL      = ""
-    DOCKER_REGISTRY_SERVER_USERNAME = ""
-    DOCKER_REGISTRY_SERVER_PASSWORD = ""
-    */
   }
 
   # Configure Docker Image to load on start
