@@ -22,14 +22,8 @@ resource "azurerm_app_service" "ghostblog" {
   app_service_plan_id = "${azurerm_app_service_plan.ghostblog.id}"
 
   app_settings = {
-    WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-    database__connection__filename =	"/var/lib/ghost/content_blob/ghost.db"
-    GHOST_CONTENT	="/var/lib/ghost/content_files/"
     NODE_ENV =	"production"
-    paths__contentPath	="/var/lib/ghost/content_files/"
-    privacy__useUpdateCheck	= false
     url = "${var.resource_group_prefix}${var.environments[terraform.workspace]}.azurewebsites.net"
-
   }
 
   # Configure Docker Image to load on start
