@@ -5,7 +5,7 @@ variable "selected_region" {
 }
 
 variable "resource_group_prefix" {
-  default = "slothycode"
+  default = "dotnetnorth"
   description = "Prefix of the resource group"
 }
 
