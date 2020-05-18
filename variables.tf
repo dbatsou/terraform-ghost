@@ -5,24 +5,24 @@ variable "selected_region" {
 }
 
 variable "resource_group_prefix" {
-  default = "slothycode"
+  default     = "dotnetoxford"
   description = "Prefix of the resource group"
 }
 
 variable "environments" {
-    type = map
-    default = {
-        "staging"  = "s"
-        "live"  = ""
-    }
+  type = map
+  default = {
+    "staging" = "s"
+    "live"    = ""
+  }
 }
 
 variable "domain_prefix" {
-    type = map
-    default = {
-        "staging"  = "s"
-        "live"  = ""
-    }
+  type = map
+  default = {
+    "staging" = "s"
+    "live"    = ""
+  }
 }
 
 variable "build" {
